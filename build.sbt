@@ -9,8 +9,8 @@ lazy val dateparser =
     .settings(settings)
     .settings(
       libraryDependencies ++= Seq(
-        library.scalaCheck % Test,
-        library.scalaTest  % Test
+        library.scalaTest  % Test,
+	library.fastParse
       )
     )
 
@@ -21,11 +21,11 @@ lazy val dateparser =
 lazy val library =
   new {
     object Version {
-      val scalaCheck = "1.13.5"
-      val scalaTest  = "3.0.1"
+      val scalaTest  = "3.0.2"
+      val fastParse  = "0.4.2"
     }
-    val scalaCheck = "org.scalacheck" %% "scalacheck" % Version.scalaCheck
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
+    val fastParse  = "com.lihaoyi" % "fastparse_2.12.0-RC2" % Version.fastParse
   }
 
 // *****************************************************************************
@@ -40,7 +40,7 @@ lazy val settings =
 lazy val commonSettings =
   Seq(
     // scalaVersion from .travis.yml via sbt-travisci
-    // scalaVersion := "2.12.1",
+    // scalaVersion := "2.12.2",
     organization := "asia.solutions",
     licenses += ("MIT",
                  url("https://opensource.org/licenses/MIT")),
@@ -50,7 +50,8 @@ lazy val commonSettings =
       "-deprecation",
       "-language:_",
       "-target:jvm-1.8",
-      "-encoding", "UTF-8"
+      "-encoding", "UTF-8",
+      "-Xmax-classfile-name", "100"
     ),
     unmanagedSourceDirectories.in(Compile) := Seq(scalaSource.in(Compile).value),
     unmanagedSourceDirectories.in(Test) := Seq(scalaSource.in(Test).value)
