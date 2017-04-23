@@ -173,7 +173,7 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
   /**
     * @param s the string to be parsed
     * @param from optional index of where to start parsing the string from
-    * @return an option tuple with the LocalDate, the raw string form the matched date
+    * @return an option tuple with the LocalDate, the raw string from the matched date
     *           and the index after the last character found in the date (not the first).
     */
   def parse(s: String, from: Int = 0): Option[(LocalDate, String, Int)] =
@@ -255,11 +255,11 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
   * @param inContext relevant surrounding text within 80 characters if same/line sentence.
   * @param normalizedType country used to determine precedence rules in case of ambiguity
   */
-case class DateResult(date: LocalDate,
+case class DateResult(localDate: LocalDate,
                       dateRawText: String,
                       index: Int,
                       inContext: String,
                       normalizedType: String)
     extends Ordered[DateResult] {
-  def compare(y: DateResult): Int = this.date.compareTo(y.date)
+  def compare(y: DateResult): Int = this.localDate.compareTo(y.localDate)
 }

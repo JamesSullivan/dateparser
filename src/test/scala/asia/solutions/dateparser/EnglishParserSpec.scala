@@ -109,7 +109,7 @@ class EnglishParserSpec() extends FlatSpec with Matchers {
 
   "An EnglishParser.dateResults" should "return a seq of DateResults " in {
     val dateResultSeq = euroParser.dateResults(dateText)
-    dateResultSeq.head.date should be(date(2015, 6, 17))
+    dateResultSeq.head.localDate should be(date(2015, 6, 17))
     dateResultSeq.head.dateRawText should be("17 JUNE 2015")
     dateResultSeq.head.inContext should be("Date of end of validity: 17 JUNE 2015; A valid date")
     dateResultSeq.size should be(5)
@@ -129,7 +129,7 @@ class EnglishParserSpec() extends FlatSpec with Matchers {
    from 1 January 2019: 100%"""
 
   "An EnglishParser.dateResults" should "for slightly imperfectDates return a seq of DateResults " in {
-    euroParser.dateResults(imperfectDates).head.date should be(date(2015, 6, 17))
+    euroParser.dateResults(imperfectDates).head.localDate should be(date(2015, 6, 17))
     euroParser.dateResults(imperfectDates).size should be(5)
   }
 

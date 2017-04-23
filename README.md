@@ -18,20 +18,21 @@ It does not parse time (9:00), relaxed dates (Oct 1st without the year), relativ
 ## Usage
 
 ```scala
-import asia.solutions.dateparser.EnglishParser
+import asia.solutions.dateparser._
 
 val parser = new EnglishParser()
-val d = parser.parse("the date of Sept. 10, 1992, unless otherwise noted").get
+val dateResults: Seq[DateResult] = parser.dateResults("the date of Sept. 10, 1992, unless otherwise noted")
 
-println("LocalDate: " + d._1)
-// LocalDate: 1992-09-10
+for (dr <- dateResults) {
+    println("LocalDate: " + dr.localDate)
+    // LocalDate: 1992-09-10
 
-println("Date text: " + d._2)
-// Date text: Sept. 10, 1992
+    println("Date text: " + dr.dateRawText)
+    // Date text: Sept. 10, 1992
 
-println("Date text starts at character position: " + d._3)
-// Date text starts at character position: 26
-
+    println("Date text starts at character position: " + dr.index)
+    // Date text starts at character position: 26
+}
 ```
 
 See the examples in the [EnglishParserSpec.scala](https://github.com/JamesSullivan/dateparser/blob/master/src/test/scala/asia/solutions/dateparser/EnglishParserSpec.scala) test file for examples on additional functionality
