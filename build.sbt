@@ -21,11 +21,11 @@ lazy val dateparser =
 lazy val library =
   new {
     object Version {
-      val scalaTest  = "3.0.2"
-      val fastParse  = "0.4.2"
+      val scalaTest  = "3.0.3"
+      val fastParse  = "0.4.3"
     }
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
-    val fastParse  = "com.lihaoyi" % "fastparse_2.12.0-RC2" % Version.fastParse
+    val fastParse  = "com.lihaoyi" %% "fastparse" % Version.fastParse
   }
 
 // *****************************************************************************
