@@ -34,16 +34,15 @@ lazy val library =
 
 lazy val settings =
   commonSettings ++
-  gitSettings ++
-  headerSettings
+  gitSettings
 
 lazy val commonSettings =
   Seq(
     // scalaVersion from .travis.yml via sbt-travisci
     // scalaVersion := "2.12.2",
-    organization := "asia.solutions",
-    licenses += ("MIT",
-                 url("https://opensource.org/licenses/MIT")),
+    organizationName := "asia.solutions",
+    startYear := Some(2017),
+    licenses += ("MIT", new URL("https://opensource.org/licenses/MIT")),
     mappings.in(Compile, packageBin) += baseDirectory.in(ThisBuild).value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
       "-unchecked",
@@ -62,9 +61,3 @@ lazy val gitSettings =
     git.useGitDescribe := true
   )
 
-import de.heikoseeberger.sbtheader.HeaderPattern
-import de.heikoseeberger.sbtheader.license._
-lazy val headerSettings =
-  Seq(
-    headers := Map("scala" -> MIT("2017", "James Sullivan"))
-  )
