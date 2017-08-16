@@ -17,6 +17,8 @@ It does not parse time (9:00), relaxed dates (Oct 1st without the year), relativ
 
 ## Usage
 
+Simply add the src/main/scala/asia/solutions/dateparser/EnglishParser.scala file to your source code
+
 ```scala
 import asia.solutions.dateparser._
 
