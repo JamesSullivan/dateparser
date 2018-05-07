@@ -2,6 +2,8 @@
 
 Welcome to dateparser!
 
+[![Build Status](https://travis-ci.org/JamesSullivan/dateparser.png)](https://travis-ci.org/JamesSullivan/dateparser)
+
 A simple English language explicit date parser. This parser only supports parsing of complete explicit dates from 1901 to 2099. Dates without the century (two digit years) default to 20th century if greater than or equal to 50 or to the 21st century if less than. Although most date formats are clear, certain date formats can be ambiguous and the locale must be set or else by default priority will be given to US date format interpretations.
 
 It does not parse time (9:00), relaxed dates (Oct 1st without the year), relative dates (the day before next Thursday), or date alternatives (next Mon or Tuesday). If you have those or similar requirements I recommend trying [Natty](http://natty.joestelmach.com/) or [datr.scala](https://github.com/platzhaltr/datr.scala).
