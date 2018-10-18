@@ -1,38 +1,36 @@
-# sbt
-lib_managed
-project/project
-target
-
-# Worksheets (Eclipse or IntelliJ)
-*.sc
-
-# Eclipse
-.cache*
+.cache-main
 .classpath
 .project
-.scala_dependencies
+.ensime
+.ensime_cache
+.idea
+.sbtserver
 .settings
 .target
-.worksheet
-
-# IntelliJ
-.idea
-
-# ENSIME
-.ensime
-.ensime_lucene
-.ensime_cache
-
-# Mac
-.DS_Store
-
-# Akka
-ddata*
-journal
-snapshots
-
-# Log files
+.*.swp
+.*.swo
+*.class
+*.iml
+*.ipr
+*.iws
 *.log
+/RUNNING_PID
+/bin
+/ensime-langserver.log
+/nohup.out
+/pc.stdout.log
+/test
+/test-2.12
+build
+build.txt
+cache
+logs
+org.scala-ide.sdt.core/META-INF/MANIFEST.MF
+org.scala-ide.sdt.update-site/site.xml
+out
+project/project
+project/target
+tags
+target
+tmp
 
-# Vim swp files
-*.swp

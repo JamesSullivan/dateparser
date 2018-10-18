@@ -22,7 +22,7 @@ lazy val library =
   new {
     object Version {
       val scalaTest  = "3.0.5"
-      val fastParse  = "1.0.0"
+      val fastParse  = "2.0.0"
     }
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
     val fastParse  = "com.lihaoyi" %% "fastparse" % Version.fastParse
@@ -39,7 +39,6 @@ lazy val settings =
 lazy val commonSettings =
   Seq(
     // scalaVersion from .travis.yml via sbt-travisci
-    // scalaVersion := "2.12.6",
     organizationName := "asia.solutions",
     startYear := Some(2017),
     licenses += ("MIT", new URL("https://opensource.org/licenses/MIT")),

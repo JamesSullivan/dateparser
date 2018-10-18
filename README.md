@@ -22,7 +22,7 @@ It does not parse time (9:00), relaxed dates (Oct 1st without the year), relativ
 Add the following dependency to build.sbt
 
 ```
-libraryDependencies ++= Seq ("com.lihaoyi" %% "fastparse" % "1.0.0")
+libraryDependencies ++= Seq ("com.lihaoyi" %% "fastparse" % "2.0.0")
 ```
 
 and add the src/main/scala/asia/solutions/dateparser/EnglishParser.scala file to your source code
@@ -73,9 +73,9 @@ See the examples in the [EnglishParserSpec.scala](https://github.com/JamesSulliv
 ## Unsupported by default but easily enabled 
 The following formats can lead to false positives so they must be specifically enabled by changing 
 
-**22.04.96**  rare in English -- to support change line 92 to     val Divider = ("/" | "-" | ".") 
+**22.04.96**  rare in English -- to support change line 123 to     val Divider = ("/" | "-" | ".") 
 
-**04062005**  to naively support change line 92 to  val Divider = ("/" | "-").? 
+**04062005**  to naively support change line 123 to  val Divider = ("/" | "-").? 
 
 a better change is to add a specific parser
 
