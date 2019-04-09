@@ -22,7 +22,7 @@ It does not parse time (9:00), relaxed dates (Oct 1st without the year), relativ
 Add the following dependency to build.sbt
 
 ```
-libraryDependencies ++= Seq ("com.lihaoyi" %% "fastparse" % "2.0.0")
+libraryDependencies ++= Seq ("com.lihaoyi" %% "fastparse" % "2.1.0")
 ```
 
 and add the src/main/scala/asia/solutions/dateparser/EnglishParser.scala file to your source code
