@@ -10,7 +10,7 @@ lazy val dateparser =
     .settings(
       libraryDependencies ++= Seq(
         library.scalaTest  % Test,
-	library.fastParse
+	    library.fastParse
       )
     )
 
@@ -21,8 +21,8 @@ lazy val dateparser =
 lazy val library =
   new {
     object Version {
-      val scalaTest  = "3.0.7"
-      val fastParse  = "2.1.0"
+      val scalaTest  = "3.0.8"
+      val fastParse  = "2.1.3"
     }
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
     val fastParse  = "com.lihaoyi" %% "fastparse" % Version.fastParse
@@ -48,8 +48,8 @@ lazy val commonSettings =
       "-deprecation",
       "-language:_",
       "-target:jvm-1.8",
-      "-encoding", "UTF-8",
-      "-Xmax-classfile-name", "100"
+      "-encoding", "UTF-8"
+      //"-Xmax-classfile-name", "100"
     ),
     unmanagedSourceDirectories.in(Compile) := Seq(scalaSource.in(Compile).value),
     unmanagedSourceDirectories.in(Test) := Seq(scalaSource.in(Test).value)
