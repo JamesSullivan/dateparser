@@ -67,29 +67,30 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
       Nineteenth | Twentieth | TwentyFirst | TwentySecond | TwentyThird | TwentyFourth | TwentyFifth |
       TwentySixth | TwentySeventh | TwentyEighth | TwentyNinth | Thirtieth | ThirtyFirst
     )
-    def First[_: P]         = P("first" | "1st" | "1 st").map(x => 1)
-    def Second[_: P]        = P("second" | "2nd" | "2 nd").map(x => 2)
-    def Third[_: P]         = P("third" | "3rd" | "3 rd").map(x => 3)
-    def Fourth[_: P]        = P("fourth" | "4th" | "4 th").map(x => 4)
-    def Fifth[_: P]         = P("fifth" | "5th" | "5 th").map(x => 5)
-    def Sixth[_: P]         = P("sixth" | "6th" | "6 th").map(x => 6)
-    def Seventh[_: P]       = P("seventh" | "7th" | "7 th").map(x => 7)
-    def Eighth[_: P]        = P("eighth" | "8th" | "8 th").map(x => 8)
-    def Ninth[_: P]         = P("ninth" | "9th" | "9 th").map(x => 9)
-    def Tenth[_: P]         = P("tenth" | "10th" | "10 th").map(x => 10)
-    def Eleventh[_: P]      = P("eleventh" | "11th" | "11 th").map(x => 11)
-    def Twelfth[_: P]       = P("tweflth" | "12th" | "12 th").map(x => 12)
-    def Thirteenth[_: P]    = P("thirteenth" | "13th" | "13 th").map(x => 13)
-    def Fourteenth[_: P]    = P("fourteenth" | "14th" | "14 th").map(x => 14)
-    def Fifteenth[_: P]     = P("fifteenth" | "15th" | "15 th").map(x => 15)
-    def Sixteenth[_: P]     = P("sixteenth" | "16th" | "16 th").map(x => 16)
-    def Seventeenth[_: P]   = P("seventeenth" | "17th" | "17 th").map(x => 17)
-    def Eighteenth[_: P]    = P("eigthteenth" | "18th" | "18 th").map(x => 18)
-    def Nineteenth[_: P]    = P("nineteenth" | "19th" | "19 th").map(x => 19)
-    def Twentieth[_: P]     = P("twentieth" | "20th" | "20 th").map(x => 20)
-    def TwentyFirst[_: P]   = P("twenty" ~ (" " | "-") ~ "first" | "21st" | "21 st").map(x => 21)
-    def TwentySecond[_: P]  = P("twenty" ~ (" " | "-") ~ "second" | "22nd" | "22 nd").map(x => 22)
-    def TwentyThird[_: P]   = P("twenty" ~ (" " | "-") ~ "third" | "23rd" | "23 rd" | "20 th").map(x => 23)
+    def First[_: P]        = P("first" | "1st" | "1 st").map(x => 1)
+    def Second[_: P]       = P("second" | "2nd" | "2 nd").map(x => 2)
+    def Third[_: P]        = P("third" | "3rd" | "3 rd").map(x => 3)
+    def Fourth[_: P]       = P("fourth" | "4th" | "4 th").map(x => 4)
+    def Fifth[_: P]        = P("fifth" | "5th" | "5 th").map(x => 5)
+    def Sixth[_: P]        = P("sixth" | "6th" | "6 th").map(x => 6)
+    def Seventh[_: P]      = P("seventh" | "7th" | "7 th").map(x => 7)
+    def Eighth[_: P]       = P("eighth" | "8th" | "8 th").map(x => 8)
+    def Ninth[_: P]        = P("ninth" | "9th" | "9 th").map(x => 9)
+    def Tenth[_: P]        = P("tenth" | "10th" | "10 th").map(x => 10)
+    def Eleventh[_: P]     = P("eleventh" | "11th" | "11 th").map(x => 11)
+    def Twelfth[_: P]      = P("tweflth" | "12th" | "12 th").map(x => 12)
+    def Thirteenth[_: P]   = P("thirteenth" | "13th" | "13 th").map(x => 13)
+    def Fourteenth[_: P]   = P("fourteenth" | "14th" | "14 th").map(x => 14)
+    def Fifteenth[_: P]    = P("fifteenth" | "15th" | "15 th").map(x => 15)
+    def Sixteenth[_: P]    = P("sixteenth" | "16th" | "16 th").map(x => 16)
+    def Seventeenth[_: P]  = P("seventeenth" | "17th" | "17 th").map(x => 17)
+    def Eighteenth[_: P]   = P("eigthteenth" | "18th" | "18 th").map(x => 18)
+    def Nineteenth[_: P]   = P("nineteenth" | "19th" | "19 th").map(x => 19)
+    def Twentieth[_: P]    = P("twentieth" | "20th" | "20 th").map(x => 20)
+    def TwentyFirst[_: P]  = P("twenty" ~ (" " | "-") ~ "first" | "21st" | "21 st").map(x => 21)
+    def TwentySecond[_: P] = P("twenty" ~ (" " | "-") ~ "second" | "22nd" | "22 nd").map(x => 22)
+    def TwentyThird[_: P] =
+      P("twenty" ~ (" " | "-") ~ "third" | "23rd" | "23 rd" | "20 th").map(x => 23)
     def TwentyFourth[_: P]  = P("twenty" ~ (" " | "-") ~ "fourth" | "24th" | "24 th").map(x => 24)
     def TwentyFifth[_: P]   = P("twenty" ~ (" " | "-") ~ "fifth" | "25th" | "25 th").map(x => 25)
     def TwentySixth[_: P]   = P("twenty" ~ (" " | "-") ~ "sixth" | "26th" | "26 th").map(x => 26)
@@ -103,19 +104,20 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
       January | February | March | April | May | June | July | August | September |
       October | November | December
     )
-    def January[_: P]   = P("january" | ("jan" ~ ".".?)).map(x => Month.JANUARY)
-    def February[_: P]  = P("february" | "febuary" | ("feb" ~ ".".?)).map(x => Month.FEBRUARY)
-    def March[_: P]     = P("march" | ("mar" ~ ".".?)).map(x => Month.MARCH)
-    def April[_: P]     = P("april" | ("apr" ~ ".".?)).map(x => Month.APRIL)
-    def May[_: P]       = P("may").map(x => Month.MAY)
-    def June[_: P]      = P("june" | ("jun" ~ ".".?)).map(x => Month.JUNE)
-    def July[_: P]      = P("july" | ("jul" ~ ".".?)).map(x => Month.JULY)
-    def August[_: P]    = P("august" | ("aug" ~ ".".?)).map(x => Month.AUGUST)
-    def September[_: P] = P("september" | ("sept" ~ ".".?) | ("sep" ~ ".".?)).map(x => Month.SEPTEMBER)
-    def October[_: P]   = P("october" | ("oct" ~ ".".?)).map(x => Month.OCTOBER)
-    def November[_: P]  = P("november" | ("nov" ~ ".".?)).map(x => Month.NOVEMBER)
-    def December[_: P]  = P("december" | ("dec" ~ ".".?)).map(x => Month.DECEMBER)
-    def Months[_: P]    = P(MonthDigits | SpecificMonth)
+    def January[_: P]  = P("january" | ("jan" ~ ".".?)).map(x => Month.JANUARY)
+    def February[_: P] = P("february" | "febuary" | ("feb" ~ ".".?)).map(x => Month.FEBRUARY)
+    def March[_: P]    = P("march" | ("mar" ~ ".".?)).map(x => Month.MARCH)
+    def April[_: P]    = P("april" | ("apr" ~ ".".?)).map(x => Month.APRIL)
+    def May[_: P]      = P("may").map(x => Month.MAY)
+    def June[_: P]     = P("june" | ("jun" ~ ".".?)).map(x => Month.JUNE)
+    def July[_: P]     = P("july" | ("jul" ~ ".".?)).map(x => Month.JULY)
+    def August[_: P]   = P("august" | ("aug" ~ ".".?)).map(x => Month.AUGUST)
+    def September[_: P] =
+      P("september" | ("sept" ~ ".".?) | ("sep" ~ ".".?)).map(x => Month.SEPTEMBER)
+    def October[_: P]  = P("october" | ("oct" ~ ".".?)).map(x => Month.OCTOBER)
+    def November[_: P] = P("november" | ("nov" ~ ".".?)).map(x => Month.NOVEMBER)
+    def December[_: P] = P("december" | ("dec" ~ ".".?)).map(x => Month.DECEMBER)
+    def Months[_: P]   = P(MonthDigits | SpecificMonth)
 
     def Digit[_: P]        = P(CharIn("0-9"))
     def NonZeroDigit[_: P] = P(CharIn("1-9"))
@@ -128,35 +130,41 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
       ((!DigitDiv ~ AnyChar) | (Start ~ &(Digit))) ~ (YYYYMMDD | YearDigits ~ Divider ~ Months ~ Divider ~
       DayDigits) ~ !DigitDiv
     )
-    def LittleEndian[_: P]: P[(Year, Month, Int)] = P(
-      ((!DigitDiv ~ AnyChar) | (Start ~ &(Digit))) ~ DayDigits ~ Divider ~ Months ~ Divider ~ YearDigits ~ !DigitDiv
-    ).map { case (day, month, year) => (year, month, day) }
-    def MiddleEndian[_: P]: P[(Year, Month, Int)] = P(
-      ((!DigitDiv ~ AnyChar) | (Start ~ &(Digit))) ~ Months ~ Divider ~ DayDigits ~ Divider ~ YearDigits ~ !DigitDiv
-    ).map { case (month, day, year) => (year, month, day) }
+    def LittleEndian[_: P]: P[(Year, Month, Int)] =
+      P(
+        ((!DigitDiv ~ AnyChar) | (Start ~ &(Digit))) ~ DayDigits ~ Divider ~ Months ~ Divider ~ YearDigits ~ !DigitDiv
+      ).map { case (day, month, year) => (year, month, day) }
+    def MiddleEndian[_: P]: P[(Year, Month, Int)] =
+      P(
+        ((!DigitDiv ~ AnyChar) | (Start ~ &(Digit))) ~ Months ~ Divider ~ DayDigits ~ Divider ~ YearDigits ~ !DigitDiv
+      ).map { case (month, day, year) => (year, month, day) }
     def YearDigits[_: P] = P(("19" | "20").? ~ Digit ~ Digit).!.map(yearTo4Digits(_))
-    def MonthDigits[_: P] = P(("1" ~ ("0" | "1" | "2")) | ("0".? ~ NonZeroDigit)).!.map(
-      x => Month.of(Integer.parseInt(x))
-    )
-    def DayDigits[_: P] = P(("3" ~ ("0" | "1")) | (("1" | "2") ~ Digit) | ("0".? ~ NonZeroDigit)).!.map(
-      x => Integer.parseInt(x)
-    )
+    def MonthDigits[_: P] =
+      P(("1" ~ ("0" | "1" | "2")) | ("0".? ~ NonZeroDigit)).!.map(x => Month.of(Integer.parseInt(x))
+      )
+    def DayDigits[_: P] =
+      P(("3" ~ ("0" | "1")) | (("1" | "2") ~ Digit) | ("0".? ~ NonZeroDigit)).!.map(x =>
+        Integer.parseInt(x)
+      )
     def StrictYear[_: P] = P(("19" | "20") ~ Digit ~ Digit).!.map(x => yearTo4Digits(x))
     def StrictMonth[_: P] =
       P(("1" ~ ("0" | "1" | "2")) | ("0" ~ NonZeroDigit)).!.map(x => Month.of(Integer.parseInt(x)))
-    def StrictDay[_: P] = P(("3" ~ ("0" | "1")) | (("1" | "2") ~ Digit) | ("0" ~ NonZeroDigit)).!.map(
-      x => Integer.parseInt(x)
-    )
+    def StrictDay[_: P] =
+      P(("3" ~ ("0" | "1")) | (("1" | "2") ~ Digit) | ("0" ~ NonZeroDigit)).!.map(x =>
+        Integer.parseInt(x)
+      )
 
-    def LittleEndianFormal[_: P]: P[(Year, Month, Int)] = P(
-      DayDigits ~ ".".? ~ Space ~ SpecificMonth ~ Space ~ YearDigits |
-      Cardinal ~ Space ~ "of ".? ~ SpecificMonth ~ Space ~ YearDigits
-    ).map { case (day, month, year) => (year, month, day) }
+    def LittleEndianFormal[_: P]: P[(Year, Month, Int)] =
+      P(
+        DayDigits ~ ".".? ~ Space ~ SpecificMonth ~ Space ~ YearDigits |
+        Cardinal ~ Space ~ "of ".? ~ SpecificMonth ~ Space ~ YearDigits
+      ).map { case (day, month, year) => (year, month, day) }
 
-    def MiddleEndianFormal[_: P]: P[(Year, Month, Int)] = P(
-      SpecificMonth ~ Space ~ DayDigits ~ Space.? ~ ".".? ~ ",".? ~ Space ~ YearDigits |
-      SpecificMonth ~ Space ~ Cardinal ~ Space.? ~ ",".? ~ Space ~ YearDigits
-    ).map { case (month, day, year) => (year, month, day) }
+    def MiddleEndianFormal[_: P]: P[(Year, Month, Int)] =
+      P(
+        SpecificMonth ~ Space ~ DayDigits ~ Space.? ~ ".".? ~ ",".? ~ Space ~ YearDigits |
+        SpecificMonth ~ Space ~ Cardinal ~ Space.? ~ ",".? ~ Space ~ YearDigits
+      ).map { case (month, day, year) => (year, month, day) }
 
     def consumeString[_: P]: P[String] = P((!AbsoluteDate ~ AnyChar).rep ~ AbsoluteDate.!)
     def consumeTuple[_: P]: P[Seq[(Year, Month, Int)]] = P(
@@ -183,12 +191,15 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
       case Parsed.Failure(p, f, i) =>
         None
       case Parsed.Success(value, successIndex) =>
-        val Parsed.Success((year, month, day), index) = parse(value, FP.AbsoluteDate(_), startIndex = 0);
+        val Parsed.Success((year, month, day), index) =
+          parse(value, FP.AbsoluteDate(_), startIndex = 0);
         try {
           Some(
-            (LocalDate.of(year.getValue, month.getValue, day),
-             s.substring(successIndex - value.length, successIndex).trim,
-             successIndex)
+            (
+              LocalDate.of(year.getValue, month.getValue, day),
+              s.substring(successIndex - value.length, successIndex).trim,
+              successIndex
+            )
           )
         } catch {
           case dateException: java.time.DateTimeException => find(s, successIndex)
@@ -206,23 +217,27 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
       case None =>
         accum
       case Some((localDate, raw, endIndex)) =>
-        getResults((endIndex),
-                   accum :+ DateResult(localDate,
-                                       raw,
-                                       endIndex - raw.length,
-                                       getContext(endIndex, raw.length),
-                                       locale.getCountry))
+        getResults(
+          (endIndex),
+          accum :+ DateResult(
+            localDate,
+            raw,
+            endIndex - raw.length,
+            getContext(endIndex, raw.length),
+            locale.getCountry
+          )
+        )
     }
 
     def getContext(index: Int, len: Int): String = {
       var startPos   = index - len
-      var lowerBound = Math.max((startPos - len) - 80, 0)
+      val lowerBound = Math.max((startPos - len) - 80, 0)
       while (startPos > lowerBound && !"\r\n.".contains(s.charAt(startPos))) {
         startPos = startPos - 1
       }
       if ("\r\n.".contains(s.charAt(startPos))) startPos = startPos + 1
       var endPos     = index
-      var upperBound = Math.min((endPos + 80), s.length - 1)
+      val upperBound = Math.min((endPos + 80), s.length - 1)
       while (endPos < upperBound && !"\r\n.".contains(s.charAt(endPos))) { endPos = endPos + 1 }
       s.substring(startPos, endPos).trim
     }
@@ -257,11 +272,12 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
   * @param inContext relevant surrounding text within 80 characters if same/line sentence.
   * @param normalizedType country used to determine precedence rules in case of ambiguity
   */
-case class DateResult(localDate: LocalDate,
-                      dateRawText: String,
-                      index: Int,
-                      inContext: String,
-                      normalizedType: String)
-    extends Ordered[DateResult] {
+case class DateResult(
+    localDate: LocalDate,
+    dateRawText: String,
+    index: Int,
+    inContext: String,
+    normalizedType: String
+) extends Ordered[DateResult] {
   def compare(y: DateResult): Int = this.localDate.compareTo(y.localDate)
 }

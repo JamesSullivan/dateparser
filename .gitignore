@@ -1,9 +1,11 @@
+.bloop
 .cache-main
 .classpath
 .project
 .ensime
 .ensime_cache
 .idea
+.metals
 .sbtserver
 .settings
 .target

@@ -23,10 +23,10 @@ package asia.solutions.dateparser
 
 import java.time.LocalDate
 import java.util.Locale
-import fastparse._
-import org.scalatest.{ FlatSpec, Matchers }
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class EnglishParserSpec() extends FlatSpec with Matchers {
+class EnglishParserSpec() extends AnyFlatSpec with Matchers {
 
   private def date(y: Int, m: Int, d: Int) = LocalDate.of(y, m, d)
   // A U.S. parser
