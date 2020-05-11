@@ -21,8 +21,8 @@ lazy val dateparser =
 lazy val library =
   new {
     object Version {
-      val scalaTest  = "3.1.0"
-      val fastParse  = "2.1.3"
+      val scalaTest  = "3.1.2"
+      val fastParse  = "2.3.0"
     }
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
     val fastParse  = "com.lihaoyi" %% "fastparse" % Version.fastParse
@@ -45,8 +45,8 @@ lazy val commonSettings =
     mappings.in(Compile, packageBin) += baseDirectory.in(ThisBuild).value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
       "-unchecked",
-      "-deprecation",
-      "-Xlint",
+     // "-deprecation",
+     // "-Xlint",
       "-language:_",
       "-target:jvm-1.8",
       "-encoding", "UTF-8"

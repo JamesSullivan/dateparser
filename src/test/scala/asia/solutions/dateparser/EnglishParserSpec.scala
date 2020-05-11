@@ -34,6 +34,8 @@ class EnglishParserSpec() extends AnyFlatSpec with Matchers {
   // A European parser
   val euroParser = new EnglishParser(new Locale("en", "GB"))
 
+  val aussieParser = new EnglishParser(new Locale("en", "AU"))
+
   "An EnglishParser.find" should "return a LocalDate, string date and the position of the last char matched in the date " in {
     parser.find("This is a test of the date 2007/11/01.").get should be(
       (date(2007, 11, 1), "2007/11/01", 37)
@@ -148,5 +150,12 @@ September 2005"""
   "An EnglishParser.dateResults" should "not include numbers that are not dates " in {
     parser.dateResults(wrong).size should be(0)
   }
+
+  "An EnglishParser set to locale AU should handle \"Dated: 6 – 12 – 2018\"" should "return 2018/12/06" in {
+      aussieParser.find("Dated: 6 – 12 – 2018").get should be(
+        (date(2018, 12, 6), "6 – 12 – 2018", 20)
+      )
+    }
+
 
 }

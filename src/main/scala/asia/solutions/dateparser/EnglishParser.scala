@@ -122,7 +122,7 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
     def Digit[_: P]        = P(CharIn("0-9"))
     def NonZeroDigit[_: P] = P(CharIn("1-9"))
     def Space[_: P]        = P(" " ~ " ".?)
-    def Divider[_: P]      = P("/" | "-")
+    def Divider[_: P]      = P("/" | "-" | " – ")
     def DigitDiv[_: P]     = P("/" | "-" | Digit)
 
     def YYYYMMDD[_: P]: P[(Year, Month, Int)] = P(StrictYear ~ StrictMonth ~ StrictDay)
