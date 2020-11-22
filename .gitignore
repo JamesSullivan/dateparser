@@ -1,4 +1,5 @@
 .bloop
+.bsp/
 .cache-main
 .classpath
 .project
@@ -9,6 +10,7 @@
 .sbtserver
 .settings
 .target
+.vscode/
 .*.swp
 .*.swo
 *.class
@@ -30,6 +32,7 @@ logs
 org.scala-ide.sdt.core/META-INF/MANIFEST.MF
 org.scala-ide.sdt.update-site/site.xml
 out
+project/metals.sbt
 project/project
 project/target
 tags

@@ -35,7 +35,8 @@ import fastparse.P
 import fastparse.Start
 // import fastparse.parserApi
 import fastparse.LiteralStr
-import fastparse.Parsed
+import fastparse.Parsed.Failure
+import fastparse.Parsed.Success
 // import fastparse.Parser
 import fastparse._
 import NoWhitespace._
@@ -186,12 +187,10 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
     * @return an option tuple with the LocalDate, the raw string from the matched date
     *           and the index after the last character found in the date (not the first).
     */
-  def find(s: String, from: Int = 0): Option[(LocalDate, String, Int)] =
-    parse(s.toLowerCase, FP.consumeString(_), startIndex = from) match {
-      case Parsed.Failure(p, f, i) =>
-        None
-      case Parsed.Success(value, successIndex) =>
-        val Parsed.Success((year, month, day), index) =
+  def find(s: String, from: Int = 0): Option[(LocalDate, String, Int)] = 
+     parse(s.toLowerCase, FP.consumeString(_), startIndex = from) match {
+      case Success(value, successIndex) =>
+        val Success((year, month, day), index) =
           parse(value, FP.AbsoluteDate(_), startIndex = 0);
         try {
           Some(
@@ -205,6 +204,8 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
           case dateException: java.time.DateTimeException => find(s, successIndex)
           // let anything else blow up
         }
+      case _: Failure =>
+        None
     }
 
   /**
@@ -249,15 +250,15 @@ class EnglishParser(val locale: Locale = new Locale("en", "US")) {
     * @return a seq of LocalDates found in the string
     */
   def localDates(s: String): Seq[LocalDate] = parse(s.toLowerCase, FP.consumeTuple(_)) match {
-    case Parsed.Failure(p, f, i) =>
-      Nil
-    case Parsed.Success(value, successIndex) =>
+    case Success(value, successIndex) =>
       try {
         value.map { case (y: Year, m: Month, d: Int) => LocalDate.of(y.getValue, m.getValue, d) }
       } catch {
         case dateException: java.time.DateTimeException => Nil
         // let any other errors bubble up
       }
+    case _: Failure =>
+      Nil
   }
 
 }
