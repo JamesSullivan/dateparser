@@ -5,6 +5,7 @@
 .project
 .ensime
 .ensime_cache
+.history
 .idea
 .metals
 .sbtserver
