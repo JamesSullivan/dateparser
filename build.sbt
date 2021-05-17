@@ -1,63 +1,25 @@
-// *****************************************************************************
-// Projects
-// *****************************************************************************
+organizationName := "asia.solutions"
 
-lazy val dateparser =
-  project
-    .in(file("."))
-    .enablePlugins(AutomateHeaderPlugin, GitVersioning, GitBranchPrompt)
-    .settings(settings)
-    .settings(
-      libraryDependencies ++= Seq(
-        library.scalaTest  % Test,
-	    library.fastParse
-      )
-    )
+name := "dateParser"
 
-// *****************************************************************************
-// Library dependencies
-// *****************************************************************************
+version := "0.0.2"
 
-lazy val library =
-  new {
-    object Version {
-      val scalaTest  = "3.2.2"
-      val fastParse  = "2.3.0"
-    }
-    val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
-    val fastParse  = "com.lihaoyi" %% "fastparse" % Version.fastParse
-  }
+scalaVersion := "2.13.5"
 
-// *****************************************************************************
-// Settings
-// *****************************************************************************
+startYear := Some(2017)
 
-lazy val settings =
-  commonSettings ++
-  gitSettings
+licenses += ("MIT", new URL("https://opensource.org/licenses/MIT"))
 
-lazy val commonSettings =
-  Seq(
-    // scalaVersion from .travis.yml via sbt-travisci
-    organizationName := "asia.solutions",
-    startYear := Some(2017),
-    licenses += ("MIT", new URL("https://opensource.org/licenses/MIT")),
-    mappings.in(Compile, packageBin) += baseDirectory.in(ThisBuild).value / "LICENSE" -> "LICENSE",
-    scalacOptions ++= Seq(
-      "-unchecked",
-     // "-deprecation",
-     // "-Xlint",
-      "-language:_",
-      "-target:jvm-1.8",
-      "-encoding", "UTF-8"
-      //"-Xmax-classfile-name", "100"
-    ),
-    unmanagedSourceDirectories.in(Compile) := Seq(scalaSource.in(Compile).value),
-    unmanagedSourceDirectories.in(Test) := Seq(scalaSource.in(Test).value)
+semanticdbVersion := "4.4.11" // added for Scala 2.13.5 error may be able to remove in future
+
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.2.9" % "test",
+  "com.lihaoyi" %% "fastparse" % "2.3.0"
 )
-
-lazy val gitSettings =
-  Seq(
-    git.useGitDescribe := true
-  )
-
+       
+scalacOptions ++= Seq(
+  "-deprecation",           
+  "-encoding", "UTF-8",       // yes, this is 2 args
+  "-feature",                
+  "-unchecked",
+)
