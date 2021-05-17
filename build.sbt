@@ -14,7 +14,7 @@ semanticdbVersion := "4.4.11" // added for Scala 2.13.5 error may be able to rem
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.9" % "test",
-  "com.lihaoyi" %% "fastparse" % "2.3.0"
+  "com.lihaoyi" %% "fastparse" % "2.3.2"
 )
        
 scalacOptions ++= Seq(
